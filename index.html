@@ -1,0 +1,22 @@
+---
+layout: default
+title: "Lab 9-10 - Task 3"
+---
+
+<body>
+  <h1>Bine ai venit la lab</h1>
+  <p>Aceasta este pagina GitHub Pages cu cookies și butonul cerut în exercițiu.</p>
+
+  <button onclick="alertCookie()">Show cookies</button>
+
+  <script>
+    // Setarea cookie-urilor cerute
+    document.cookie = "session=test GDPR";
+    document.cookie = "favorite_task=collect Data";
+
+    // Funcția care le afișează
+    function alertCookie() {
+      alert(document.cookie);
+    }
+  </script>
+</body>
