@@ -1,0 +1,57 @@
+---
+layout: default
+title: "Lab 9-10 - Task 3 (Exerciții MDN)"
+---
+
+<body>
+  <h1>Exerciții cu document.cookie (după MDN)</h1>
+
+  <h2>1. Crearea unui cookie</h2>
+  <button onclick="createCookie()">Creează cookie</button>
+
+  <h2>2. Citirea cookie-urilor</h2>
+  <button onclick="readCookies()">Afișează toate cookies</button>
+
+  <h2>3. Setarea unui cookie cu dată de expirare</h2>
+  <button onclick="setCookieWithExpiry()">Creează cookie cu expirare</button>
+
+  <h2>4. Modificarea unui cookie existent</h2>
+  <button onclick="modifyCookie()">Modifică cookie-ul 'user'</button>
+
+  <h2>5. Ștergerea unui cookie</h2>
+  <button onclick="deleteCookie()">Șterge cookie-ul 'user'</button>
+
+  <script>
+    // 1. Crearea unui cookie simplu
+    function createCookie() {
+      document.cookie = "user=David";
+      alert("Cookie 'user=David' a fost creat!");
+    }
+
+    // 2. Citirea tuturor cookie-urilor
+    function readCookies() {
+      alert("Cookies curente: " + document.cookie);
+    }
+
+    // 3. Crearea unui cookie cu dată de expirare
+    function setCookieWithExpiry() {
+      const d = new Date();
+      d.setTime(d.getTime() + (1 * 60 * 1000)); // expiră în 1 minut
+      const expires = "expires=" + d.toUTCString();
+      document.cookie = "tempCookie=ExpiraIn1Minut;" + expires + ";path=/";
+      alert("Cookie 'tempCookie' creat, expiră în 1 minut!");
+    }
+
+    // 4. Modificarea unui cookie existent (se face prin rescriere)
+    function modifyCookie() {
+      document.cookie = "user=Andrei"; // suprascrie valoarea
+      alert("Cookie 'user' modificat la 'Andrei'");
+    }
+
+    // 5. Ștergerea unui cookie (se face prin setarea unei date expirate)
+    function deleteCookie() {
+      document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      alert("Cookie 'user' a fost șters!");
+    }
+  </script>
+</body>
